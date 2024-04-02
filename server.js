@@ -19,6 +19,10 @@ app.get("/notes", (req, res) =>
 
 app.get("/api/notes", (req, res) => {
   console.info(`${req.method} request received to get reviews`);
+  console.log(notes);
+  const formattedNotes = JSON.stringify(notes);
+  console.log(formattedNotes);
+  // res.send(formattedNotes);
   res.json(notes);
 });
 app.get("*", (req, res) =>
@@ -28,12 +32,12 @@ app.get("*", (req, res) =>
 app.post("/api/notes", (req, res) => {
   console.info(`${req.method} request received to add a review`);
 
-  const { title, note } = req.body;
+  const { title, text } = req.body;
 
   if (title || note) {
     const newNote = {
       title,
-      note,
+      text,
       note_id: uuid.v1(),
     };
 

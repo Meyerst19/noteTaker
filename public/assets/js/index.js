@@ -31,8 +31,9 @@ let activeNote = {};
 const getNotes = () =>
   fetch("/api/notes", {
     method: "GET",
-    // headers: {
-    //   "Content-Type": "application/json",}
+    headers: {
+      "Content-Type": "application/json",
+    },
   })
     .then((res) => res.json())
     .then((data) => data);
@@ -130,6 +131,7 @@ const handleRenderBtns = () => {
 
 // Render the list of note titles
 const renderNoteList = async (notes) => {
+  console.log(typeof notes);
   let jsonNotes = await notes.json();
   if (window.location.pathname === "/notes") {
     noteList.forEach((el) => (el.innerHTML = ""));
