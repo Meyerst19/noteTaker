@@ -1,32 +1,12 @@
 [
     {
-        "title": "new note",
-        "text": "what should I say",
-        "note_id": "3210ab50-f1b2-11ee-9c02-9316ef5066fe"
+        "title": "first note of the day",
+        "text": "is it though",
+        "id": "44c706a0-f1b6-11ee-b5ad-0941e33074f2"
     },
     {
-        "title": "again again",
-        "text": "text again again",
-        "note_id": "7affc800-f1b2-11ee-9c02-9316ef5066fe"
-    },
-    {
-        "title": "3rd note",
-        "text": "will it triple",
-        "note_id": "71e9f770-f1b4-11ee-9c02-9316ef5066fe"
-    },
-    {
-        "title": "4th note",
-        "text": "is it better",
-        "note_id": "852732d0-f1b4-11ee-9c02-9316ef5066fe"
-    },
-    {
-        "title": "why did they ruin my life",
-        "text": "they are bad people",
-        "note_id": "91f9f970-f1b4-11ee-9c02-9316ef5066fe"
-    },
-    {
-        "title": "Will it end",
-        "text": "perhaps in fire",
-        "note_id": "b61ee770-f1b4-11ee-9c02-9316ef5066fe"
+        "title": "Is it over?",
+        "text": "I should probably try to get delete to work",
+        "id": "564fb430-f1b6-11ee-b5ad-0941e33074f2"
     }
 ]
