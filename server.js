@@ -22,10 +22,14 @@ app.get("/api/notes", (req, res) => {
   // console.log(notes);
 
   fs.readFile("./db/db.json", "utf8", (err, data) => {
-    console.log(`Line25: ${data}`); //array of JSON objects
-    // let notes = JSON.parse(data);
-    // console.log(`Line 27 ${notes}`);
-    res.json(data);
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(`Line25: ${data}`); //array of JSON objects
+      // let notes = JSON.parse(data);
+      // console.log(`Line 27 ${notes}`);
+      res.json(data);
+    }
   });
 });
 app.get("*", (req, res) =>
@@ -76,6 +80,16 @@ app.post("/api/notes", (req, res) => {
   }
 });
 
+app.delete("/api/notes/:id", (req, res) => {
+  console.info(`${req.method} request received to delete a note`);
+  fs.readFile("./db/db.json", "utf8", (err, data) => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(data);
+    }
+  });
+});
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT}`)
 );
