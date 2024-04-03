@@ -131,10 +131,11 @@ const handleRenderBtns = () => {
 
 // Render the list of note titles
 const renderNoteList = async (notes) => {
-  console.log(typeof notes);
-  let jsonNotes = await notes.json();
+  console.log(notes);
+  let jsonNotes = await JSON.parse(notes);
+  console.log(jsonNotes);
   if (window.location.pathname === "/notes") {
-    noteList.forEach((el) => (el.innerHTML = ""));
+    noteList.forEach((el) => (el.textContent = ""));
   }
 
   let noteListItems = [];
@@ -146,7 +147,7 @@ const renderNoteList = async (notes) => {
 
     const spanEl = document.createElement("span");
     spanEl.classList.add("list-item-title");
-    spanEl.innerText = text;
+    spanEl.textContent = text;
     spanEl.addEventListener("click", handleNoteView);
 
     liEl.append(spanEl);
@@ -173,6 +174,7 @@ const renderNoteList = async (notes) => {
   }
 
   jsonNotes.forEach((note) => {
+    console.log(note.title);
     const li = createLi(note.title);
     li.dataset.note = JSON.stringify(note);
 

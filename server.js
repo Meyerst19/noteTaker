@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs");
 const uuid = require("uuid");
-const notes = require("./db/db.json");
+// const notes = require("./db/db.json");
 
 const PORT = 3001;
 
@@ -18,19 +18,22 @@ app.get("/notes", (req, res) =>
 );
 
 app.get("/api/notes", (req, res) => {
-  console.info(`${req.method} request received to get reviews`);
-  console.log(notes);
-  const formattedNotes = JSON.stringify(notes);
-  console.log(formattedNotes);
-  // res.send(formattedNotes);
-  res.json(notes);
+  console.info(`${req.method} request received to get notes`);
+  // console.log(notes);
+
+  fs.readFile("./db/db.json", "utf8", (err, data) => {
+    console.log(`Line25: ${data}`); //array of JSON objects
+    // let notes = JSON.parse(data);
+    // console.log(`Line 27 ${notes}`);
+    res.json(data);
+  });
 });
 app.get("*", (req, res) =>
   res.sendFile(path.join(__dirname, "/public/index.html"))
 );
 
 app.post("/api/notes", (req, res) => {
-  console.info(`${req.method} request received to add a review`);
+  console.info(`${req.method} request received to add notes`);
 
   const { title, text } = req.body;
 
